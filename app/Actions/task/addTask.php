@@ -19,7 +19,6 @@ class addTask extends Action
 
     public function asController(addTaskRequest $request): JsonResponse
     {
-
         return $this->handle($request->validated());
     }
 }
