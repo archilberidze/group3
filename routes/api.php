@@ -16,6 +16,6 @@ Route::get('/user', function (Request $request) {
 Route::prefix('task')->group(function() {
     Route::post('add_task',addTask::class);
     Route::put('update_task/{id}',updateTask::class);
-    // Route::delete('delete_task/{id}', deleteTask::class);
-    Route::put('complete_task/{id}', completeTask::class);
+    Route::delete('delete_task/{id}', [deleteTask::class, 'asController']);
+    Route::put('complete_task/{id}', [completeTask::class, 'handle']);
 });

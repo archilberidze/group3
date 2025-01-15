@@ -9,7 +9,6 @@ use App\Http\Requests\deleteTaskRequest;
 
 class deleteTask
 {
-    use AsAction;
 
     public function handle(int $id)
     {
@@ -24,7 +23,7 @@ class deleteTask
         return response()->json(['message' => 'Task deleted successfully'], 200);
     }
 
-    public function asController(deleteTaskRequest $request, int $id): JsonResponse
+    public function asController(int $id): JsonResponse
     {
         return $this->handle($id);
     }

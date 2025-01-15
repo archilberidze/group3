@@ -14,6 +14,9 @@ class completeTask extends Action
     public function handle(int $id): JsonResponse
     {
         $task = task::find($id);
+        if (!$task) {
+            return response()->json(['error' => 'Task not found'], 404);
+        }
 
         if ($task) {
             $task->status = 'completed';  
@@ -26,7 +29,7 @@ class completeTask extends Action
     }
 
 
-    public function asController(completeTaskRequest $request, int $id): JsonResponse
+    public function asController(int $id): JsonResponse
     {
         return $this->handle($id);
     }
