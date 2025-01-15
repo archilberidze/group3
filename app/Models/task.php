@@ -12,5 +12,13 @@ class task extends Model
     protected $fillable = [
         'tittle',
         'description',
+        'status',
     ];
+
+    public function scopeLikeName($quary,$tittle){
+        return $quary->where('tittle','like','%'.$tittle.'%');
+    }
+
+
+
 }
