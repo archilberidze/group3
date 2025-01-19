@@ -15,9 +15,9 @@ use App\Actions\task\completeTask;
 Route::prefix('task')->group(function() {
     Route::post('add_task',addTask::class);
     Route::put('update_task/{id}',updateTask::class);
-//    Route::delete('delete_task/{id}', deleteTask::class);
-   Route::put('complete_task/{id}', completeTask::class);
-   Route::get('get_tasks', getTask::class);
+    Route::delete('delete_task/{id}', deleteTask::class);
+    Route::put('complete_task/{id}', completeTask::class);
+    Route::get('get_tasks', getTask::class);
 });
 
 Route::prefix('product')->group(function() {

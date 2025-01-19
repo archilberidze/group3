@@ -19,6 +19,4 @@ class task extends Model
         return $quary->where('tittle','like','%'.$tittle.'%');
     }
 
-
-
 }

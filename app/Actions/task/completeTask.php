@@ -2,6 +2,7 @@
 
 namespace App\Actions\task;
 
+use App\Http\Resources\completeTaskResource;
 use App\Models\task;
 use Lorisleiva\Actions\Action;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -20,9 +21,8 @@ class completeTask extends Action
         $task->status = 'completed';
         $task->save();
 
-        return response()->json(['message' => 'Task completed successfully'], 200);
-
-
+        return response()->json(new completeTaskResource($task), 200);
+          
     }
 
 

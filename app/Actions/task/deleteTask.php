@@ -7,6 +7,7 @@ use Lorisleiva\Actions\Action;
 use Lorisleiva\Actions\Concerns\AsAction;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\deleteTaskRequest;
+use App\Http\Resources\deleteTaskResource;
 
 class deleteTask extends Action
 {
@@ -21,7 +22,7 @@ class deleteTask extends Action
 
         $task->delete();
 
-        return response()->json(['message' => 'Task deleted successfully'], 200);
+        return response()->json(new deleteTaskResource($task), 200);
     }
     public function asController(int $id): JsonResponse
     {
