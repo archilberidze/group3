@@ -14,4 +14,9 @@ class book extends Model
         'author',
         'publication_date',
     ];
+
+    public function scopeLikeAuthor($quary,$author){
+        return $quary->where('author','like','%'.$author.'%');
+    }
 }
+

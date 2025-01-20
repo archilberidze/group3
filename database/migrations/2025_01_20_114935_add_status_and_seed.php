@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('task', function (Blueprint $table) {
-            $table->id();
-            $table->string('tittle');
-            $table->text('description');
+        Schema::table('task', function (Blueprint $table) {
+            $table->string('status')->after('description')->default('pending');
         });
+
+        Artisan::call('db:seed', ['--class' => 'TaskSeeder']);
     }
 
     /**

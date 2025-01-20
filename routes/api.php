@@ -2,9 +2,12 @@
 
 use App\Actions\addProduct\addProduct as AddProductAddProduct;
 use App\Actions\book\addBook;
+use App\Actions\book\deleteBook;
 use App\Actions\task\addTask;
 use App\Actions\product\addProduct;
 use App\Actions\task\getTask;
+use App\Actions\book\getBook;
+use App\Actions\book\updateBook;
 use App\Actions\task\updateTask;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +29,7 @@ Route::prefix('product')->group(function() {
 
 Route::prefix('book')->group(function() {
     Route::post('add_book',  addBook::class);
+    Route::get('get_author', getBook::class);
+    Route::delete('delete_book/{id}', deleteBook::class);
+    Route::put('update_book/{id}',updateBook::class);
 });
