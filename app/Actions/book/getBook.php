@@ -14,7 +14,7 @@ class getBook extends Action
 
     public function handle(array $data)
     {
-       $book = book::LikeAuthor($data['author'])->get();
+       $book = book::likeAuthor($data['author'])->get();
 
        if ($book->isEmpty()) {
         return response()->json(['message' => 'No books found for the specified author'], 404);
