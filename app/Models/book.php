@@ -13,10 +13,15 @@ class book extends Model
         'title',
         'author',
         'publication_date',
+        'country_id',
     ];
 
     public function scopeLikeAuthor($quary,$author){
         return $quary->where('author','like','%'.$author.'%');
+    }
+
+    public function country(){
+        return $this->belongsTo(Country::class,'country_id', 'id');
     }
 }
 

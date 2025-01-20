@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class getBookResource extends JsonResource
+class CountryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,8 +15,7 @@ class getBookResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'author' => $this->resource->author,
-            'Country' => new CountryResource($this->resource->country)
+            'name' =>$this->resource->name
         ];
     }
 }
