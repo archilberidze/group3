@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-//        Schema::table('task', function (Blueprint $table) {
-//            $table->string('status')->after('description')->default('pending');
-//        });
-
-        Artisan::call('db:seed', ['--class' => 'TaskSeeder']);
+        Schema::create('country_product', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('country_id');
+            $table->foreignId('product_id');
+            $table->timestamps();
+            $table->unique(['country_id','product_id']);
+        });
     }
 
     /**
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('country_product');
     }
 };

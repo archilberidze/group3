@@ -13,4 +13,8 @@ class product extends Model
         'name',
         'description',
     ];
+
+    public function country(){
+        return $this->belongsToMany(Country::class,'country_product','country_id','product_id');
+    }
 }

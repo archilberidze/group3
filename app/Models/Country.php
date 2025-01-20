@@ -11,4 +11,12 @@ class Country extends Model
     protected $fillable = [
        'name'
     ];
+
+    public function books(){
+        return $this->hasMany(Books::class,'country_id', 'id');
+    }
+
+    public function product(){
+        return $this->belongsToMany(Product::class,'country_product','country_id','product_id');
+    }
 }

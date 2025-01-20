@@ -3,6 +3,7 @@
 use App\Actions\addProduct\addProduct as AddProductAddProduct;
 use App\Actions\book\addBook;
 use App\Actions\book\deleteBook;
+use App\Actions\product\getProduct;
 use App\Actions\task\addTask;
 use App\Actions\product\addProduct;
 use App\Actions\task\getTask;
@@ -25,6 +26,7 @@ Route::prefix('task')->group(function() {
 
 Route::prefix('product')->group(function() {
     Route::post('add_product',  addProduct::class);
+    Route::get('get_products',  getProduct::class);
 });
 
 Route::prefix('book')->group(function() {
